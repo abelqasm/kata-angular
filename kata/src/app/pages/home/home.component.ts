@@ -5,7 +5,7 @@ import { ProductsListComponent } from 'src/app/products/container/products-list/
   selector: 'app-home',
   standalone: true,
   imports: [ProductsListComponent],
-  template: `<div>
+  template: `<div class="container max-w-7xl p-10">
     <app-products-list></app-products-list>
   </div>`,
 })
