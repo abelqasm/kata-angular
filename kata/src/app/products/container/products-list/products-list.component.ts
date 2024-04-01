@@ -1,3 +1,4 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/products/models/product.model';
@@ -6,7 +7,12 @@ import { ProductService } from 'src/app/products/services/product.service';
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  template: `<p></p>`,
+  imports: [AsyncPipe],
+  template: `<ul>
+    @for (product of (products$ | async); track product.id) {
+    <div></div>
+    }
+  </ul>`,
 })
 export class ProductsListComponent {
   private readonly productServices = inject(ProductService);
