@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
-  template: ` <h1>test</h1>
-    <router-outlet></router-outlet>`,
   standalone: true,
-  imports: [RouterOutlet],
+  template: `
+    <header>
+      <app-header />
+    </header>
+    <main class="w-full flex justify-center">
+      <router-outlet></router-outlet>
+    </main>
+    <footer class="flex justify-center gap-10 bg-gray-200 w-full p-2">
+			<span className='text-xs'>© 2024 Belcom. All rights reserved</span>
+    </footer>
+  `,
+  imports: [RouterOutlet, HeaderComponent],
 })
 export class AppComponent {
   title = 'kata';
