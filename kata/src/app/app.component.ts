@@ -3,8 +3,10 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  template: ` <h1>test</h1>
-    <router-outlet></router-outlet>`,
+  template: `<h1>test</h1>
+    <router-outlet></router-outlet>
+    <p>parag</p>
+    `,
   standalone: true,
   imports: [RouterOutlet],
 })
