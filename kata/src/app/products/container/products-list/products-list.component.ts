@@ -9,7 +9,7 @@ import { ProductCardComponent } from '../../components/product-card/product-card
   selector: 'app-products-list',
   standalone: true,
   imports: [AsyncPipe, ProductCardComponent],
-  template: `<ul class="grid grid-col-2">
+  template: `<ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
     @for (product of (products$ | async); track product.id) {
     <app-product-card [product]="product" />
     }
@@ -21,6 +21,5 @@ export class ProductsListComponent {
 
   ngOnInit() {
     this.products$ = this.productServices.getProducts();
-    console.log(this.products$);
   }
 }
