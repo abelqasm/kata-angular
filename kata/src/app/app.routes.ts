@@ -3,8 +3,9 @@ import { HomeComponent } from './pages/home/home.component';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/home/home.component').then((c) => c.HomeComponent),
+    // loadComponent: () =>
+    //   import('./pages/home/home.component').then((c) => c.HomeComponent),
+    component: HomeComponent,
   },
   {
     path: '/checkout',

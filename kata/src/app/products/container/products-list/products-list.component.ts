@@ -5,6 +5,7 @@ import { ProductService } from 'src/app/products/services/product.service';
 
 @Component({
   selector: 'app-products-list',
+  standalone: true,
   template: `<p></p>`,
 })
 export class ProductsListComponent {
