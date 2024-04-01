@@ -12,8 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
     <main class="w-full flex justify-center">
       <router-outlet></router-outlet>
     </main>
-    <footer>
-      <p>parag</p>
+    <footer class="flex justify-center gap-10 bg-gray-200 w-full p-2">
+			<span className='text-xs'>© 2024 Belcom. All rights reserved</span>
     </footer>
   `,
   imports: [RouterOutlet, HeaderComponent],
