@@ -44,8 +44,8 @@ import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-c
 })
 export class ProductsListComponent {
   private readonly productServices = inject(ProductService);
-  readonly items = Array.from({ length: 20 }, (_, i) => i + 1);
-  public category = 'None';
+  readonly items: number[] = Array.from({ length: 20 }, (_, i) => i + 1);
+  public category: string = 'None';
   public products$!: Observable<Product[]>;
   public categories$!: Observable<String[]>;
 
