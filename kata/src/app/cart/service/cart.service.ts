@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { CartItem } from '../models/cart.model';
 import { Product } from 'src/app/products/models/product.model';
-import { BehaviorSubject } from 'rxjs';
-interface CartItem {
-  product: Product;
-  quantity: number;
-}
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private cartSubject = new BehaviorSubject<CartItem[]>(this.getCart());
+  private cartItems$ = this.cartSubject.asObservable();
+  private totalItem$ = this.cartItems$.pipe(
+    map((items) => items.reduce((acc, item) => acc + item.quantity, 0))
+  );
 
   constructor() {}
   private getCart(): CartItem[] {
@@ -47,7 +48,10 @@ export class CartService {
     }
     this.saveCart(items);
   }
-  getTotalItem(): number {
-    return this.cartSubject.value.reduce((acc, item) => acc + item.quantity, 0);
+  getTotalItem(): Observable<number> {
+    return this.totalItem$;
+  }
+  getCartItems(): Observable<CartItem[]> {
+    return this.cartItems$;
   }
 }

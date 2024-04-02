@@ -10,8 +10,6 @@ export const routes: Routes = [
   {
     path: 'checkout',
     loadComponent: () =>
-      import('./checkout/component/checkout.component').then(
-        (c) => c.CheckoutComponent
-      ),
+      import('./checkout/checkout.component').then((c) => c.CheckoutComponent),
   },
 ];
