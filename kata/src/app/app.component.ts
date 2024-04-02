@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MatDialogModule } from '@angular/material/dialog';
+import {
+  MatDialogModule,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { HeaderComponent } from './components/header/header.component';
 
 @Component({
@@ -14,7 +18,7 @@ import { HeaderComponent } from './components/header/header.component';
       <router-outlet></router-outlet>
     </main>
     <footer class="flex justify-center gap-10 bg-gray-200 w-full p-2">
-      <span className="text-xs">© 2024 Belcom. All rights reserved</span>
+			<span className='text-xs'>© 2024 Belcom. All rights reserved</span>
     </footer>
   `,
   imports: [RouterOutlet, HeaderComponent, MatDialogModule],
