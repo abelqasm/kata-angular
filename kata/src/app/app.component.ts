@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import {
+  MatDialogModule,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { HeaderComponent } from './components/header/header.component';
 
 @Component({
@@ -16,7 +21,7 @@ import { HeaderComponent } from './components/header/header.component';
 			<span className='text-xs'>© 2024 Belcom. All rights reserved</span>
     </footer>
   `,
-  imports: [RouterOutlet, HeaderComponent],
+  imports: [RouterOutlet, HeaderComponent, MatDialogModule],
 })
 export class AppComponent {
   title = 'kata';
