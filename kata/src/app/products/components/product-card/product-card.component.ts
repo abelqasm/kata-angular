@@ -5,6 +5,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CurrencyPipe } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
+import { CartService } from 'src/app/checkout/service/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -45,11 +46,15 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 })
 export class ProductCardComponent {
   @Input({ required: true }) product!: Product;
+
   private readonly matDialog = inject(MatDialog);
+  private readonly cartService = inject(CartService);
+
   showProductDetails(product: Product) {
     this.matDialog.open(ProductDetailsComponent, { data: product });
   }
   addToCart(event: MouseEvent, product: Product) {
     event.stopPropagation();
+    this.cartService.addTocart(product);
   }
 }
