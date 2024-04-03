@@ -17,6 +17,6 @@ import { CurrencyPipe } from '@angular/common';
       <button mat-button class="w-full py-2 rounded-lg"></button>
     </mat-card-actions>
   </mat-card>`,
-  styles: ['.product-card { background-color: #F4BF96; }'],
+  styles: ['.product-card { background-color: #9bb0c1; }'],
 })
 export class SkeletonCardComponent {}
