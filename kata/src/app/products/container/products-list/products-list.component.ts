@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, SimpleChanges } from '@angular/core';
-import { Observable } from 'rxjs';
+import { combineLatest, map, Observable, of, Subscription } from 'rxjs';
 import { Product } from 'src/app/products/models/product.model';
 import { ProductService } from 'src/app/products/services/product.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -44,16 +44,44 @@ import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-c
 })
 export class ProductsListComponent {
   private readonly productServices = inject(ProductService);
-  readonly items: number[] = Array.from({ length: 20 }, (_, i) => i + 1);
+  public readonly items: number[] = Array.from({ length: 20 }, (_, i) => i + 1);
+  private subscription$!: Subscription;
   public category: string = 'None';
   public products$!: Observable<Product[]>;
-  public categories$!: Observable<String[]>;
-
+  public categories$!: Observable<string[]>;
   ngOnInit() {
     this.products$ = this.productServices.getProducts();
     this.categories$ = this.productServices.getCategories();
+
+    this.subscription$ = combineLatest([
+      this.products$,
+      this.productServices.getSearchQuery(),
+    ])
+      .pipe(
+        map(([products, searchQuery]) => {
+          if (!searchQuery || searchQuery.trim() === '') {
+            return products;
+          }
+          return products.filter(
+            (product) =>
+              product.title.toLowerCase().includes(searchQuery) ||
+              product.category.toLocaleLowerCase().includes(searchQuery)
+          );
+        })
+      )
+      .subscribe((finalProducts) => {
+        console.log(this.products$);
+        if (finalProducts) {
+          this.products$ = of(finalProducts);
+        }
+        console.log(this.products$);
+      });
   }
+
   onCategorySelected(category: string) {
     this.products$ = this.productServices.getProductsByCategory(category);
+  }
+  ngOnDestroy() {
+    this.subscription$.unsubscribe();
   }
 }
