@@ -7,6 +7,7 @@ body {
   margin: 0;
   position: relative;
   min-height: 100vh;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   font-family: Roboto, "Helvetica Neue", sans-serif;
