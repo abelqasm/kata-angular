@@ -14,7 +14,7 @@ import { CartService } from 'src/app/cart/service/cart.service';
   imports: [MatCardModule, MatDividerModule, CurrencyPipe, MatButtonModule],
   template: `
     <mat-card
-      class="product-card p-3 cursor-pointer hover:scale-110 hover:z-10 transition-transform duration-200"
+      class="product-card p-3 cursor-pointer sm:hover:scale-110 sm:hover:z-10 sm:transition-transform sm:duration-200"
       (click)="showProductDetails(product)"
     >
       <mat-card-header>
@@ -25,7 +25,7 @@ import { CartService } from 'src/app/cart/service/cart.service';
         <img
           mat-card-image
           [src]="product.image"
-          class="object-cover h-48 rounded-lg"
+          class="object-cover h-48 w-full"
         />
         <span>
           {{ product.price | currency }}
@@ -46,10 +46,10 @@ import { CartService } from 'src/app/cart/service/cart.service';
   styles: [
     `
       .product-card {
-        background-color: #9BB0C1;
+        background-color: #9bb0c1;
       }
       .add-btn {
-        background-color: #51829B;
+        background-color: #51829b;
       }
     `,
   ],

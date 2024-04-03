@@ -19,7 +19,7 @@ import { SkeletonCardComponent } from '../../components/skeleton-card/skeleton-c
     SkeletonCardComponent,
   ],
   template: `
-    <mat-form-field class="w-full">
+    <mat-form-field class="w-full px-5">
       <mat-label>Chose a category</mat-label>
       <mat-select
         [(value)]="category"
