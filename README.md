@@ -1,27 +1,16 @@
-# Kata
+# Belcom Project Overview
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+Belcom is a mini e-commerce application with a user-friendly/responsive platform for browsing and purchasing products, built with angular and typescript for the code seciton and, Angular Material UI components and Tailwind CSS for styling.
 
-## Development server
+## Project Structure
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Product Listing Component**: A componetnts that display a list of products using Observable (rxjs) for manipulating data .
 
-## Code scaffolding
+- **Product Card Component**: A reusable component used to display cards information.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Cart Component**: A components that display user items that was purchased, with dynamicly removing or adding more quantity.
 
-## Build
+- **Product Details Component**: A components that show all info of a product when you Click on.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Search Functionality**: Implemented a search feature allowing users to search for products by title or category.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
