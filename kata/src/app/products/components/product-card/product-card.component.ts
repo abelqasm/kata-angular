@@ -46,10 +46,10 @@ import { CartService } from 'src/app/cart/service/cart.service';
   styles: [
     `
       .product-card {
-        background-color: #f4bf96;
+        background-color: #9BB0C1;
       }
       .add-btn {
-        background-color: #ce5a67;
+        background-color: #51829B;
       }
     `,
   ],

@@ -31,7 +31,7 @@ import { MatDividerModule } from '@angular/material/divider';
     <mat-dialog-actions class="w-full">
       <button
         mat-button
-        class="w-full bg-[#CE5A67] py-2 rounded-lg"
+        class="w-full bg-[#51829B] py-2 rounded-lg"
         (onclick)="addToCart()"
       >
         Add to cart

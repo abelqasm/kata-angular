@@ -36,6 +36,8 @@ import { RouterLink } from '@angular/router';
       <ul class="grid grid-cols-1 gap-2">
         @for (cartItem of (cartItems$ | async); track $index) {
         <app-cart-item [cartItem]="cartItem" />
+        } @empty {
+        <span>Cart is empty</span>
         }
       </ul>
       <button
@@ -43,7 +45,7 @@ import { RouterLink } from '@angular/router';
         [routerLink]="['/checkout']"
         routerLinkActive="router-link-active"
         mat-button
-        class="w-full bg-[#CE5A67] py-2 rounded-lg"
+        class="w-full check-btn py-2 rounded-lg"
       >
         Proceed to checkout
       </button>
@@ -58,6 +60,9 @@ import { RouterLink } from '@angular/router';
         position: absolute;
         top: 0;
         right: 0;
+      }
+      .check-btn {
+        background-color: #51829B;
       }
     `,
   ],
