@@ -15,7 +15,7 @@ import { ProductService } from 'src/app/products/services/product.service';
   selector: 'app-search',
   standalone: true,
   imports: [MatFormFieldModule, MatInputModule, MatIconModule, FormsModule],
-  template: `<mat-form-field appearance="fill" class="w-full py-3">
+  template: `<mat-form-field appearance="fill" class="w-full">
     <mat-label>Search Products</mat-label>
     <input
       matInput
