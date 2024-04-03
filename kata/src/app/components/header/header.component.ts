@@ -11,8 +11,8 @@ import { CartComponent } from 'src/app/cart/container/cart/cart.component';
   selector: 'app-header',
   standalone: true,
   imports: [SearchComponent, MatBottomSheetModule, MatIconModule],
-  template: `<nav class="flex justify-between">
-    <span>Belcom</span>
+  template: `<nav class="flex justify-between px-5">
+    <span class="font-extrabold text-4xl py-3">Belcom</span>
     <app-search />
     <button (click)="openBottomSheet()">
       <mat-icon>shopping_cart</mat-icon>

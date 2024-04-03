@@ -1,5 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { Product } from '../../models/product.model';
+import { CurrencyPipe } from '@angular/common';
 import {
   MatDialogModule,
   MAT_DIALOG_DATA,
@@ -9,7 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [MatDividerModule, MatDialogModule],
+  imports: [MatDividerModule, MatDialogModule, CurrencyPipe],
   template: `
     <header class="place-items-start relative">
       <h1 mat-dialog-title>{{ data.product.title }}</h1>
@@ -23,7 +24,7 @@ import { MatDividerModule } from '@angular/material/divider';
         class="object-cover h-48 rounded-lg"
       />
       <span>
-        {{ '$' + data.product.price }}
+        {{ data.product.price | currency }}
       </span>
     </mat-dialog-content>
     <mat-divider></mat-divider>
@@ -40,10 +41,8 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class ProductDetailsComponent {
   private readonly dialogRef = inject(MatDialogRef<ProductDetailsComponent>);
-  
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { product: Product }) {
-    console.log(this.dialogRef)
-  }
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { product: Product }) {}
   closeDetails() {
     this.dialogRef.close();
   }

@@ -7,11 +7,18 @@ import { Observable } from 'rxjs';
 import { CartService } from '../../service/cart.service';
 import { CartItemComponent } from '../../component/cart-item/cart-item.component';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, CartItemComponent, AsyncPipe],
+  imports: [
+    MatIconModule,
+    MatButtonModule,
+    CartItemComponent,
+    AsyncPipe,
+    RouterLink,
+  ],
   template: `
     <article>
       <header class="cart-header">
@@ -31,7 +38,13 @@ import { AsyncPipe } from '@angular/common';
         <app-cart-item [cartItem]="cartItem" />
         }
       </ul>
-      <button mat-button class="w-full bg-[#CE5A67] py-2 rounded-lg">
+      <button
+        (click)="onClose($event)"
+        [routerLink]="['/checkout']"
+        routerLinkActive="router-link-active"
+        mat-button
+        class="w-full bg-[#CE5A67] py-2 rounded-lg"
+      >
         Proceed to checkout
       </button>
     </article>
