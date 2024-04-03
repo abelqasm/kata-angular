@@ -3,12 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  height: 100%;
-}
 body {
   margin: 0;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #fcf5ed;
+  background-color: #EADFB4;
 }

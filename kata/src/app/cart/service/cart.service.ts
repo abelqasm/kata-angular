@@ -12,7 +12,11 @@ export class CartService {
   private totalItem$ = this.cartItems$.pipe(
     map((items) => items.reduce((acc, item) => acc + item.quantity, 0))
   );
-
+  private totalPrice$ = this.cartItems$.pipe(
+    map((items) =>
+      items.reduce((acc, item) => acc + item.quantity * item.product.price, 0)
+    )
+  );
   constructor() {}
   private getCart(): CartItem[] {
     const savedCart = localStorage.getItem('cart');
@@ -53,5 +57,8 @@ export class CartService {
   }
   getCartItems(): Observable<CartItem[]> {
     return this.cartItems$;
+  }
+  getTotalPrice(): Observable<number> {
+    return this.totalPrice$;
   }
 }

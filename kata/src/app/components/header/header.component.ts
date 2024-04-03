@@ -6,13 +6,20 @@ import {
   MatBottomSheetModule,
 } from '@angular/material/bottom-sheet';
 import { CartComponent } from 'src/app/cart/container/cart/cart.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SearchComponent, MatBottomSheetModule, MatIconModule],
+  imports: [SearchComponent, RouterLink, MatBottomSheetModule, MatIconModule],
   template: `<nav class="flex justify-between px-5">
-    <span class="font-extrabold text-4xl py-3">Belcom</span>
+    <button
+      [routerLink]="['/']"
+      routerLinkActive="router-link-active"
+      class="font-extrabold text-4xl h-fit py-3 px-2"
+    >
+      Belcom
+    </button>
     <app-search />
     <button (click)="openBottomSheet()">
       <mat-icon>shopping_cart</mat-icon>
