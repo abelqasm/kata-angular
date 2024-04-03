@@ -8,9 +8,10 @@ Belcom is a mini e-commerce application with a user-friendly/responsive platform
 
 - **Product Card Component**: A reusable component used to display cards information.
 
-- **Cart Component**: A components that display user items that was purchased, with dynamicly removing or adding more quantity.
-
 - **Product Details Component**: A components that show all info of a product when you Click on.
 
-- **Search Functionality**: Implemented a search feature allowing users to search for products by title or category.
+- **Cart Component**: A components that display user items that was purchased, with dynamicly removing or adding more quantity.
 
+- **checkout component**: A component that take use reactive form for taking user Information for the shipping step. 
+
+- **Search Functionality**: Implemented a search feature allowing users to search for products by title or category.
