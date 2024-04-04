@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
