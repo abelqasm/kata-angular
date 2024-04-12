@@ -54,7 +54,7 @@ export class ProductsListComponent {
     this.categories$ = this.productServices.getCategories();
 
     this.subscription$ = combineLatest([
-      this.products$,
+      this.productServices.getProducts(),
       this.productServices.getSearchQuery(),
     ])
       .pipe(
@@ -70,11 +70,9 @@ export class ProductsListComponent {
         })
       )
       .subscribe((finalProducts) => {
-        console.log(this.products$);
         if (finalProducts) {
           this.products$ = of(finalProducts);
         }
-        console.log(this.products$);
       });
   }
 

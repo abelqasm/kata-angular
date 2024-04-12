@@ -31,22 +31,22 @@ export class SearchComponent {
   private readonly productService = inject(ProductService);
   private readonly searchQuerySubject = new Subject<string>();
   public query!: string;
-  
+
   constructor() {
     this.subscription$ = this.searchQuerySubject
       .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe((queryParam) => this.updateFilter(queryParam));
-    }
-    
-    updateSearchQuery() {
-      this.searchQuerySubject.next(this.query);
-    }
-    
-    updateFilter(queryParam: string) {
-      this.productService.updateQuery(queryParam);
-    }
+  }
 
-    ngOnDestroy() {
+  updateSearchQuery() {
+    this.searchQuerySubject.next(this.query);
+  }
+
+  updateFilter(queryParam: string) {
+    this.productService.updateQuery(queryParam);
+  }
+
+  ngOnDestroy() {
     this.subscription$.unsubscribe();
   }
 }
